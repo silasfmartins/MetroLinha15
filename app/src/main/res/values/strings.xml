@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">MetroLinha15</string>
+    <string name="app_name">Metro Linha 15</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="nome_entrevistado">Nome do Entrevistado</string>
+    <string name="telefone">Telefone</string>
+    <string name="salvar">Salvar</string>
+    <string name="bem_vindo">Bem-vindo ao Sistema Metro L15</string>
+    <string name="cadastrar_entrevistado">Cadastrar Entrevistado</string>
 </resources>
