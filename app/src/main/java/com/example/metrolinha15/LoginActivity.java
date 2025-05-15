@@ -1,4 +1,4 @@
-package com.example.metrolinha15.activities;
+package com.example.metrolinha15;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.R;
 import com.example.metrolinha15.dao.EntrevistadorDAO;
 
 public class LoginActivity extends AppCompatActivity {

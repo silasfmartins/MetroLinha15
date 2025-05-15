@@ -1,4 +1,4 @@
-package com.example.metrolinha15.activities;
+package com.example.metrolinha15;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.R;
 import com.example.metrolinha15.dao.EntrevistadoDAO;
 
 public class CadastroEntrevistadoActivity extends AppCompatActivity {
@@ -36,7 +35,6 @@ public class CadastroEntrevistadoActivity extends AppCompatActivity {
                 if (!nome.isEmpty() && !telefone.isEmpty()) {
                     entrevistadoDAO.inserirEntrevistado(nome, telefone);
                     Toast.makeText(CadastroEntrevistadoActivity.this, "Entrevistado salvo com sucesso!", Toast.LENGTH_SHORT).show();
-                    finish();
                 } else {
                     Toast.makeText(CadastroEntrevistadoActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
                 }
