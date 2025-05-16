@@ -5,6 +5,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 public class EntrevistadoDAO {
     private BancoHelper dbHelper;
 
@@ -31,5 +35,19 @@ public class EntrevistadoDAO {
         cursor.close();
         db.close();
         return total;
+    }
+
+    public List<String> getNomeEntrevistado() {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Entrevistado", null);
+        ArrayList<String> nomes = new ArrayList<String>();
+        if (cursor.moveToFirst()) {
+            do {
+                nomes.add(cursor.getString(cursor.getColumnIndexOrThrow("Nome")));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return nomes;
     }
 }

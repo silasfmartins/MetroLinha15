@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class BancoHelper extends SQLiteOpenHelper {
-    private static final String NOME_BANCO = "metroLinha15.db";
+    private static final String NOME_BANCO = "metroLinha15";
     private static final int VERSAO = 1;
 
     public BancoHelper(Context context) {

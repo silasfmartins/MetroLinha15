@@ -36,4 +36,11 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="@android:color/holo_blue_dark"
         android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/contadorEntrevistado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>
