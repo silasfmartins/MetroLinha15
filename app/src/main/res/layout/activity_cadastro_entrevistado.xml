@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="24dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="@drawable/background">
 
     <EditText
         android:id="@+id/etNome"
@@ -14,8 +13,11 @@
         android:layout_height="wrap_content"
         android:hint="Nome do Entrevistado"
         android:padding="12dp"
-        android:minHeight="48dp"
-        android:background="@android:drawable/edit_text" />
+        android:minHeight="56dp"
+        android:background="@android:drawable/edit_text"
+        android:textColorHint="#888"
+        android:textColor="#000"
+        android:layout_marginBottom="16dp" />
 
     <EditText
         android:id="@+id/etTelefone"
@@ -24,23 +26,21 @@
         android:hint="Telefone"
         android:inputType="phone"
         android:padding="12dp"
-        android:minHeight="48dp"
+        android:minHeight="56dp"
         android:background="@android:drawable/edit_text"
-        android:layout_marginTop="16dp" />
+        android:textColorHint="#888"
+        android:textColor="#000"
+        android:layout_marginBottom="24dp" />
 
     <Button
         android:id="@+id/btnSalvar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:textColor="#FFFFFF"/>
-
-    <TextView
-        android:id="@+id/contadorEntrevistado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="#FFFFFF"
+        android:elevation="4dp"
+        android:padding="12dp"
+        android:textSize="16sp" />
 
 </LinearLayout>

@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">Metro Linha 15</string>
-    <string name="login">Login</string>
-    <string name="senha">Senha</string>
-    <string name="entrar">Entrar</string>
-    <string name="nome_entrevistado">Nome do Entrevistado</string>
-    <string name="telefone">Telefone</string>
-    <string name="salvar">Salvar</string>
-    <string name="bem_vindo">Bem-vindo ao Sistema Metro L15</string>
-    <string name="cadastrar_entrevistado">Cadastrar Entrevistado</string>
+    <string-array name="estacoes">
+        <item>Vila Prudente</item>
+        <item>Oratorio</item>
+        <item>São Lucas</item>
+        <item>Camilo Haddad</item>
+        <item>Vila Tolstói</item>
+        <item>Vila União</item>
+        <item>Jardim Planalto</item>
+        <item>Sapopemba</item>
+        <item>Fazenda da Juta</item>
+        <item>São Mateus</item>
+        <item>Jardim Colonial</item>
+    </string-array>
 </resources>

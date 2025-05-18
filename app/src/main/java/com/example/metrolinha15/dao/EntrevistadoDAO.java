@@ -50,4 +50,19 @@ public class EntrevistadoDAO {
         db.close();
         return nomes;
     }
+
+    public List<String> listarEntrevistados() {
+        List<String> lista = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT nome FROM Entrevistado", null);
+        while (cursor.moveToNext()) {
+            String nome = cursor.getString(0);
+            lista.add(nome);
+        }
+
+        cursor.close();
+        db.close();
+        return lista;
+    }
 }

@@ -5,48 +5,55 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.metrolinha15.dao.BancoHelper;
+
 public class EstacaoDAO {
-    private BancoHelper dbHelper;
+
+    private BancoHelper helper;
 
     public EstacaoDAO(Context context) {
-        dbHelper = new BancoHelper(context);
+        this.helper = new BancoHelper(context);
     }
 
-    public void inserirEstacao(String nomeEstacao, int origem, int destino) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        ContentValues valores = new ContentValues();
-        valores.put("nomeEstacao", nomeEstacao);
-        valores.put("origem", origem);
-        valores.put("destino", destino);
-        db.insert("Estacao", null, valores);
+    // Registra o par origem-destino
+    public void registrar(String origem, String destino) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("origem", origem);
+        values.put("destino", destino);
+        db.insert("Estacao", null, values);
         db.close();
     }
 
-    public void registrarOrigem(String nomeEstacao) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.execSQL("UPDATE Estacao SET origem = origem + 1 WHERE nomeEstacao = ?", new String[]{nomeEstacao});
-        db.close();
-    }
+    // Retorna uma string com as estatísticas de origem e destino
+    public String getEstatisticas() {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        StringBuilder sb = new StringBuilder();
 
-    // Incrementa o contador de destino da estação selecionada
-    public void registrarDestino(String nomeEstacao) {
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        db.execSQL("UPDATE Estacao SET destino = destino + 1 WHERE nomeEstacao = ?", new String[]{nomeEstacao});
-        db.close();
-    }
-
-    public String obterNomeEstacao(int idEstacao) {
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String nomeEstacao = null;
-
-        Cursor cursor = db.rawQuery("SELECT nomeEstacao FROM Estacao WHERE idEstacao = ?", new String[]{String.valueOf(idEstacao)});
-        if (cursor.moveToFirst()) {
-            nomeEstacao = cursor.getString(cursor.getColumnIndexOrThrow("nomeEstacao"));
+        // Contar todas as ocorrências por origem
+        Cursor c1 = db.rawQuery("SELECT origem, COUNT(*) as total FROM Estacao GROUP BY origem", null);
+        sb.append("Totais por ORIGEM:\n");
+        while (c1.moveToNext()) {
+            sb.append("- ").append(c1.getString(0)).append(": ").append(c1.getInt(1)).append("\n");
         }
+        c1.close();
 
-        cursor.close();
+        // Contar todas as ocorrências por destino
+        Cursor c2 = db.rawQuery("SELECT destino, COUNT(*) as total FROM Estacao GROUP BY destino", null);
+        sb.append("\nTotais por DESTINO:\n");
+        while (c2.moveToNext()) {
+            sb.append("- ").append(c2.getString(0)).append(": ").append(c2.getInt(1)).append("\n");
+        }
+        c2.close();
+
         db.close();
+        return sb.toString();
+    }
 
-        return nomeEstacao;
+    // Remove todos os registros
+    public void zerarTotais() {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        db.delete("Estacao", null, null);
+        db.close();
     }
 }

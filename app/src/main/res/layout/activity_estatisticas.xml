@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/tvResumo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Estatísticas"
+        android:textSize="16sp"
+        android:textColor="#FFF" />
+
+    <Button
+        android:id="@+id/btnZerar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zerar Dados"
+        android:backgroundTint="@android:color/holo_red_dark"
+        android:textColor="#FFF"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

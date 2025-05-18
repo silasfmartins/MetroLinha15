@@ -21,8 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CadastroEntrevistadoActivity" />
-        <activity android:name=".Re" />
+
+        <activity android:name=".ListaEntrevistadosActivity"/>
+        <activity android:name=".EstatisticasActivity"/>
+        <activity android:name=".SelecionarDestinoActivity"/>
+        <activity android:name=".SelecionarOrigemActivity"/>
+        <activity android:name=".RegistroOrigemDestinoActivity"/>
+        <activity android:name=".CadastroEntrevistadoActivity"/>
+        <activity android:name=".LoginActivity"/>
     </application>
 
 

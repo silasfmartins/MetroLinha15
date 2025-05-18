@@ -7,22 +7,29 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.dao.BancoHelper;
-
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCadastroEntrevistado;
+    private Button btnLoginAdmin, btnCadastrarEntrevistado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnCadastroEntrevistado = findViewById(R.id.btnCadastroEntrevistado);
-        btnCadastroEntrevistado.setOnClickListener(new View.OnClickListener() {
+
+        btnLoginAdmin = findViewById(R.id.btnLoginAdmin);
+        btnCadastrarEntrevistado = findViewById(R.id.btnCadastroEntrevistado);
+
+        btnLoginAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegistroOrigemDestinoActivity.class);
-                startActivity(intent);
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+
+        btnCadastrarEntrevistado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CadastroEntrevistadoActivity.class));
             }
         });
     }

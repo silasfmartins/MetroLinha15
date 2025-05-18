@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
@@ -12,16 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Bem-vindo ao Sistema Metro L15"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="#FFF" />
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnLoginAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login Admin"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/btnCadastroEntrevistado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Entrevistado"
-        android:layout_marginTop="32dp"
         android:backgroundTint="@android:color/holo_green_dark"
-        android:textColor="#FFF"/>
+        android:textColor="#FFFFFF" />
 </LinearLayout>

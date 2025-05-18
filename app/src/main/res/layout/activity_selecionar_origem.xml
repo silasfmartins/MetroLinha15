@@ -1,0 +1,22 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/gridOrigem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="2"
+    android:padding="24dp"
+    android:background="@drawable/background">
+
+    <Button
+        android:id="@+id/btnVilaPrudente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:text="Vila Prudente" />
+
+    <Button
+        android:id="@+id/btnOratorio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:text="Oratório" />
+</GridLayout>

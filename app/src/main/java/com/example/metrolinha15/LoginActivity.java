@@ -9,37 +9,38 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.dao.EntrevistadorDAO;
-
 public class LoginActivity extends AppCompatActivity {
-
-    private EditText etLogin, etSenha;
-    private Button btnLogin;
-    private EntrevistadorDAO entrevistadorDAO;
+    private EditText etUsuario, etSenha;
+    private Button btnLoginAdmin, btnCadastroEntrevistado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        etLogin = findViewById(R.id.etLogin);
+        etUsuario = findViewById(R.id.etUsuario);
         etSenha = findViewById(R.id.etSenha);
-        btnLogin = findViewById(R.id.btnLogin);
-        entrevistadorDAO = new EntrevistadorDAO(this);
+        btnLoginAdmin = findViewById(R.id.btnLoginAdmin);
+        btnCadastroEntrevistado = findViewById(R.id.btnCadastroEntrevistado);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnLoginAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String login = etLogin.getText().toString();
+                String usuario = etUsuario.getText().toString();
                 String senha = etSenha.getText().toString();
 
-                if (entrevistadorDAO.autenticar(login, senha)) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                if (usuario.equals("admin") && senha.equals("admin")) {
+                    startActivity(new Intent(LoginActivity.this, EstatisticasActivity.class));
                 } else {
-                    Toast.makeText(LoginActivity.this, "Login ou senha inválidos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Credenciais inválidas!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        btnCadastroEntrevistado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, CadastroEntrevistadoActivity.class));
             }
         });
     }

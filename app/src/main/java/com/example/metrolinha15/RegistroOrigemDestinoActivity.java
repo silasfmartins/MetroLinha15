@@ -4,20 +4,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.R;
 import com.example.metrolinha15.dao.EstacaoDAO;
-
-import java.util.List;
 
 public class RegistroOrigemDestinoActivity extends AppCompatActivity {
 
-    private Spinner spOrigem, spDestino;
+    private GridLayout gridOrigem, gridDestino;
     private Button btnRegistrar;
+    private String origemSelecionada = null, destinoSelecionada = null;
     private EstacaoDAO estacaoDAO;
 
     @Override
@@ -25,40 +24,40 @@ public class RegistroOrigemDestinoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_origem_destino);
 
-        spOrigem = findViewById(R.id.spOrigem);
-        spDestino = findViewById(R.id.spDestino);
+        gridOrigem = findViewById(R.id.gridOrigem);
+        gridDestino = findViewById(R.id.gridDestino);
         btnRegistrar = findViewById(R.id.btnRegistrar);
-
         estacaoDAO = new EstacaoDAO(this);
 
-        carregarEstacoes();
+        String[] estacoes = getResources().getStringArray(R.array.estacoes);
+        adicionarBotoesEstacoes(gridOrigem, estacoes, true);
+        adicionarBotoesEstacoes(gridDestino, estacoes, false);
 
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String origem = spOrigem.getSelectedItem().toString();
-                String destino = spDestino.getSelectedItem().toString();
-
-                if (!origem.equals(destino)) {
-                    estacaoDAO.registrarOrigem(origem);
-                    estacaoDAO.registrarDestino(destino);
-                    Toast.makeText(RegistroOrigemDestinoActivity.this, "Registro salvo!", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    Toast.makeText(RegistroOrigemDestinoActivity.this, "Origem e destino não podem ser iguais!", Toast.LENGTH_SHORT).show();
-                }
+        btnRegistrar.setOnClickListener(view -> {
+            if (origemSelecionada != null && destinoSelecionada != null) {
+                estacaoDAO.registrar(origemSelecionada, destinoSelecionada);
+                Toast.makeText(this, "Origem e destino registrados", Toast.LENGTH_SHORT).show();
+                // Redirecionar para próxima atividade ou finalizar
+            } else {
+                Toast.makeText(this, "Selecione origem e destino", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void carregarEstacoes() {
-        List<String> estacoes = estacaoDAO.obterNomeEstacao(1);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this, android.R.layout.simple_spinner_item, estacoes
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spOrigem.setAdapter(adapter);
-        spDestino.setAdapter(adapter);
+    private void adicionarBotoesEstacoes(GridLayout gridLayout, String[] estacoes, boolean isOrigem) {
+        for (String estacao : estacoes) {
+            Button btn = new Button(this);
+            btn.setText(estacao);
+            btn.setOnClickListener(view -> {
+                if (isOrigem) {
+                    origemSelecionada = estacao;
+                    // Atualizar UI para indicar seleção
+                } else {
+                    destinoSelecionada = estacao;
+                    // Atualizar UI para indicar seleção
+                }
+            });
+            gridLayout.addView(btn);
+        }
     }
 }
