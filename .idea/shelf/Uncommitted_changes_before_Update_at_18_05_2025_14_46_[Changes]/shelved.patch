@@ -1,0 +1,48 @@
+Index: app/src/main/java/com/example/metrolinha15/activities/CadastroEntrevistadoActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/metrolinha15/activities/CadastroEntrevistadoActivity.java b/app/src/main/java/com/example/metrolinha15/CadastroEntrevistadoActivity.java
+rename from app/src/main/java/com/example/metrolinha15/activities/CadastroEntrevistadoActivity.java
+rename to app/src/main/java/com/example/metrolinha15/CadastroEntrevistadoActivity.java
+--- a/app/src/main/java/com/example/metrolinha15/activities/CadastroEntrevistadoActivity.java	(revision d1c7eeda1ee7803c872aa3d8db167559afbf5f87)
++++ b/app/src/main/java/com/example/metrolinha15/CadastroEntrevistadoActivity.java	(date 1747590414841)
+@@ -1,4 +1,4 @@
+-package com.example.metrolinha15.activities;
++package com.example.metrolinha15;
+ 
+ import android.os.Bundle;
+ import android.view.View;
+@@ -8,7 +8,6 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+-import com.example.metrolinha15.R;
+ import com.example.metrolinha15.dao.EntrevistadoDAO;
+ 
+ public class CadastroEntrevistadoActivity extends AppCompatActivity {
+Index: app/src/main/java/com/example/metrolinha15/activities/LoginActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/metrolinha15/activities/LoginActivity.java b/app/src/main/java/com/example/metrolinha15/LoginActivity.java
+rename from app/src/main/java/com/example/metrolinha15/activities/LoginActivity.java
+rename to app/src/main/java/com/example/metrolinha15/LoginActivity.java
+--- a/app/src/main/java/com/example/metrolinha15/activities/LoginActivity.java	(revision d1c7eeda1ee7803c872aa3d8db167559afbf5f87)
++++ b/app/src/main/java/com/example/metrolinha15/LoginActivity.java	(date 1747590414824)
+@@ -1,4 +1,4 @@
+-package com.example.metrolinha15.activities;
++package com.example.metrolinha15;
+ 
+ import android.content.Intent;
+ import android.os.Bundle;
+@@ -9,7 +9,6 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
+-import com.example.metrolinha15.R;
+ import com.example.metrolinha15.dao.EntrevistadorDAO;
+ 
+ public class LoginActivity extends AppCompatActivity {
