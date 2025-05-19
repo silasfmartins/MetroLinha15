@@ -20,16 +20,9 @@
         android:id="@+id/btnLoginAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login Admin"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/holo_blue_dark"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
-
-    <Button
-        android:id="@+id/btnCadastroEntrevistado"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Cadastrar Entrevistado"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="Login"
         android:textColor="#FFFFFF" />
+
 </LinearLayout>

@@ -19,7 +19,6 @@ public class CadastroEntrevistadoActivity extends AppCompatActivity {
     private EditText etNome, etTelefone;
     private Button btnSalvar;
     private EntrevistadoDAO entrevistadoDAO;
-    private TextView contador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +29,7 @@ public class CadastroEntrevistadoActivity extends AppCompatActivity {
         etTelefone = findViewById(R.id.etTelefone);
         btnSalvar = findViewById(R.id.btnSalvar);
         entrevistadoDAO = new EntrevistadoDAO(this);
-        contador = findViewById(R.id.contadorEntrevistado);
 
-        //contador.setText(entrevistadoDAO.getNomeEntrevistado());
         btnSalvar.setOnClickListener(view -> {
             String nome = etNome.getText().toString();
             String telefone = etTelefone.getText().toString();

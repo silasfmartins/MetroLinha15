@@ -24,4 +24,7 @@
     <color name="estacao_fazenda_da_juta">#90CAF9</color>
     <color name="estacao_sao_mateus">#F06292</color>
     <color name="estacao_jardim_colonial">#4DD0E1</color>
+    <color name="azul_fundo">#1E88E5</color>
+    <color name="verde_botao">#009688</color>
+    <color name="cinza_claro">#BDBDBD</color>
 </resources>

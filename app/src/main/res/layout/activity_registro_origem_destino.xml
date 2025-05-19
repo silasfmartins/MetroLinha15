@@ -1,55 +1,54 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:padding="24dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecione a Origem"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Botões de estações para Origem -->
-    <GridLayout
-        android:id="@+id/gridOrigem"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:layout_marginBottom="24dp">
-        <!-- Botões adicionados dinamicamente -->
-    </GridLayout>
+        android:orientation="vertical"
+        android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Selecione o Destino"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:layout_marginBottom="16dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione a Origem"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
 
-    <!-- Botões de estações para Destino -->
-    <GridLayout
-        android:id="@+id/gridDestino"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:layout_marginBottom="24dp">
-        <!-- Botões adicionados dinamicamente -->
-    </GridLayout>
+        <GridLayout
+            android:id="@+id/gridOrigem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:layout_marginBottom="24dp" />
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Registrar"
-        android:padding="12dp"
-        android:textSize="16sp"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/teal_700" />
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecione o Destino"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="16dp" />
+
+        <GridLayout
+            android:id="@+id/gridDestino"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="4"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar"
+            android:padding="12dp"
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/teal_700" />
+    </LinearLayout>
+</ScrollView>

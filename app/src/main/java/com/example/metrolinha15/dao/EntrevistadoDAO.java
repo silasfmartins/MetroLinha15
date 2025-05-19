@@ -60,7 +60,6 @@ public class EntrevistadoDAO {
             String nome = cursor.getString(0);
             lista.add(nome);
         }
-
         cursor.close();
         db.close();
         return lista;
