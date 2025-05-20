@@ -11,35 +11,49 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <!-- Título principal -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecione a Origem"
-            android:textColor="@android:color/white"
+            android:text="SELECIONE O DESTINO"
+            android:textColor="@color/azul_fundo"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Linha 12 – Safira -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Linha 12 – Safira"
+            android:textColor="@color/azul_fundo"
             android:textSize="18sp"
-            android:layout_marginBottom="16dp" />
+            android:textStyle="bold" />
 
         <GridLayout
-            android:id="@+id/gridOrigem"
+            android:id="@+id/gridLinha12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="4"
             android:layout_marginBottom="24dp" />
 
+        <!-- Linha 15 – Prata -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecione o Destino"
-            android:textColor="@android:color/white"
+            android:text="Linha 15 – Prata"
+            android:textColor="@color/azul_fundo"
             android:textSize="18sp"
-            android:layout_marginBottom="16dp" />
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
 
         <GridLayout
-            android:id="@+id/gridDestino"
+            android:id="@+id/gridLinha15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="4"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="32dp" />
 
         <Button
             android:id="@+id/btnRegistrar"

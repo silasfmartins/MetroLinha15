@@ -13,4 +13,20 @@
         <item>São Mateus</item>
         <item>Jardim Colonial</item>
     </string-array>
+
+    <string-array name="estacoes2">
+        <item>Brás</item>
+        <item>Tatuapé</item>
+        <item>Engenheiro Goulart</item>
+        <item>USP Leste</item>
+        <item>Comendador Ermelino</item>
+        <item>São Miguel Paulista</item>
+        <item>Jardim Helena–Vila Mara</item>
+        <item>Itaim Paulista</item>
+        <item>Jardim Romano</item>
+        <item>Engenheiro Manoel Feio</item>
+        <item>Ferraz de Vasconcelos</item>
+        <item>Poá</item>
+        <item>Calmon Viana</item>
+    </string-array>
 </resources>

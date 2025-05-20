@@ -2,17 +2,13 @@ package com.example.metrolinha15;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.metrolinha15.dao.EntrevistadoDAO;
-
-import org.w3c.dom.Text;
 
 public class CadastroEntrevistadoActivity extends AppCompatActivity {
 
@@ -37,8 +33,7 @@ public class CadastroEntrevistadoActivity extends AppCompatActivity {
             if (!nome.isEmpty() && !telefone.isEmpty()) {
                 entrevistadoDAO.inserirEntrevistado(nome, telefone);
                 Toast.makeText(CadastroEntrevistadoActivity.this, "Entrevistado salvo com sucesso!", Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(CadastroEntrevistadoActivity.this, RegistroOrigemDestinoActivity.class);
+                Intent intent = new Intent(CadastroEntrevistadoActivity.this, RegistroOrigemActivity.class);
                 startActivity(intent);
                 finish();
             } else {
