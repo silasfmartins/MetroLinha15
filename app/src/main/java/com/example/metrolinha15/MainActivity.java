@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         btnLoginAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RegistroOrigemActivity.class));
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
     }

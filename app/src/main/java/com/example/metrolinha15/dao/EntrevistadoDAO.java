@@ -43,7 +43,7 @@ public class EntrevistadoDAO {
         ArrayList<String> nomes = new ArrayList<String>();
         if (cursor.moveToFirst()) {
             do {
-                nomes.add(cursor.getString(cursor.getColumnIndexOrThrow("Nome")));
+                nomes.add(cursor.getString(cursor.getColumnIndexOrThrow("nome")));
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -55,10 +55,14 @@ public class EntrevistadoDAO {
         List<String> lista = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT nome FROM Entrevistado", null);
+        Cursor cursor = db.rawQuery("SELECT nome, telefone FROM Entrevistado", null);
         while (cursor.moveToNext()) {
             String nome = cursor.getString(0);
-            lista.add(nome);
+            String telefone = cursor.getString(1);
+
+            // Adiciona ícones diretamente no texto
+            String textoFormatado = "👤 " + nome + "\n📞 " + telefone;
+            lista.add(textoFormatado);
         }
         cursor.close();
         db.close();

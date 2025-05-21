@@ -9,19 +9,22 @@
         android:id="@+id/btnEstatisticas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Ver Estatísticas"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnListaEntrevistados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="Lista de Entrevistados"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/btnCadastrarEntrevistador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar Entrevistador" />
+        android:text="Cadastrar Entrevistador"
+        android:textColor="@color/white" />
 </LinearLayout>
