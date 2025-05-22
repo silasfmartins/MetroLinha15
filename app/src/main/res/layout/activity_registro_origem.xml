@@ -9,9 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="16dp"
         android:gravity="center">
 
+
         <!-- Título principal -->
+
+        <!-- Linha 12 – Safira -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +26,6 @@
             android:textSize="22sp"
             android:textStyle="bold" />
 
-        <!-- Linha 12 – Safira -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

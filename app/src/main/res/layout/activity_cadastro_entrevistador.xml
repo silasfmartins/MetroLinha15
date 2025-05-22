@@ -8,26 +8,29 @@
         android:id="@+id/edtLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"
         android:hint="Login"
+        android:background="@drawable/edittext_background"
         android:textColor="@color/azul_fundo"
-        android:textColorHighlight="@color/azul_fundo"
-        android:textColorHint="@color/azul_fundo"
-        android:textColorLink="@color/black" />
+        android:textColorHint="@color/azul_fundo" />
 
     <EditText
         android:id="@+id/edtSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"
         android:hint="Senha"
         android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
         android:textColor="@color/azul_fundo"
-        android:textColorHighlight="@color/azul_fundo"
-        android:textColorHint="@color/azul_fundo"
-        android:textColorLink="@color/black" />
+        android:textColorHint="@color/azul_fundo" />
 
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="Cadastrar Entrevistador" />
 </LinearLayout>

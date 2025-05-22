@@ -39,7 +39,6 @@ public class RegistroDestinoActivity extends AppCompatActivity {
         adicionarBotoesEstacoes(gridLinha12, getResources().getStringArray(R.array.estacoes2), R.drawable.botao_linha12);
         adicionarBotoesEstacoes(gridLinha15, getResources().getStringArray(R.array.estacoes), R.drawable.botao_linha15);
 
-
         btnRegistrar.setOnClickListener(v -> {
             if (destinoSelecionado != null && origem != null) {
                 estacaoDAO.registrar(origem, destinoSelecionado);
