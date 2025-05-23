@@ -10,14 +10,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.metrolinha15.dao.EntrevistadoDAO;
+import com.example.metrolinha15.dao.EstacaoDAO;
+import com.example.metrolinha15.model.Estacao; // Você precisa ter essa classe Estacao
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListaEntrevistadosActivity extends AppCompatActivity {
 
     private ListView listView;
-    private EntrevistadoDAO dao;
+    private EstacaoDAO estacaoDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +27,24 @@ public class ListaEntrevistadosActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lista_entrevistados);
 
         listView = findViewById(R.id.listView);
-        dao = new EntrevistadoDAO(this);
-        List<String> lista = dao.listarEntrevistados();
+        estacaoDAO = new EstacaoDAO(this);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, lista) {
+        // Busca todas as estações registradas (com origem, destino e localização)
+        List<Estacao> estacoes = estacaoDAO.listarEstacoes();
+        if (estacoes == null) {
+            estacoes = new ArrayList<>();
+        }
+
+        // Converte os dados em strings formatadas
+        List<String> listaFormatada = new ArrayList<>();
+        for (Estacao e : estacoes) {
+            String item = "Origem: " + e.getOrigem() +
+                    "\nDestino: " + e.getDestino() +
+                    "\nLocalização: " + e.getLatitude() + ", " + e.getLongitude();
+            listaFormatada.add(item);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaFormatada) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
@@ -41,7 +57,7 @@ public class ListaEntrevistadosActivity extends AppCompatActivity {
                 text.setPadding(32, 32, 32, 32);
                 text.setBackgroundResource(R.drawable.bg_item_entrevistado);
 
-                // Corrigido: aplica margem apenas se possível
+                // Aplica margem
                 ViewGroup.LayoutParams baseParams = view.getLayoutParams();
                 if (baseParams instanceof ViewGroup.MarginLayoutParams) {
                     ((ViewGroup.MarginLayoutParams) baseParams).setMargins(0, 0, 0, 24);
@@ -51,7 +67,7 @@ public class ListaEntrevistadosActivity extends AppCompatActivity {
                 return view;
             }
         };
-        listView.setAdapter(adapter);
 
+        listView.setAdapter(adapter);
     }
 }

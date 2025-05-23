@@ -1,18 +1,24 @@
 package com.example.metrolinha15;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.metrolinha15.dao.EstacaoDAO;
+
 
 public class RegistroDestinoActivity extends AppCompatActivity {
     private GridLayout gridLinha12, gridLinha15;
@@ -20,10 +26,14 @@ public class RegistroDestinoActivity extends AppCompatActivity {
     private String origem, destinoSelecionado = null;
     private EstacaoDAO estacaoDAO;
 
+    private double latitude = 0.0;
+    private double longitude = 0.0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_destino);
+        pegarLocalizacao();
 
         gridLinha12 = findViewById(R.id.gridLinha12);
         gridLinha15 = findViewById(R.id.gridLinha15);
@@ -41,14 +51,32 @@ public class RegistroDestinoActivity extends AppCompatActivity {
 
         btnRegistrar.setOnClickListener(v -> {
             if (destinoSelecionado != null && origem != null) {
-                estacaoDAO.registrar(origem, destinoSelecionado);
-                Toast.makeText(this, "Origem e destino registrados com sucesso!", Toast.LENGTH_SHORT).show();
-                finish(); // ou redirecionar para outra activity
+                estacaoDAO.registrar(origem, destinoSelecionado, latitude, longitude);
+                Toast.makeText(this, "Origem, destino e localização registrados!", Toast.LENGTH_SHORT).show();
+                finish();
             } else {
                 Toast.makeText(this, "Selecione o destino", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private void pegarLocalizacao() {
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        } else {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, location -> {
+                if (location != null) {
+                    latitude = location.getLatitude();
+                    longitude = location.getLongitude();
+                    // Opcional: mostrar um Toast ou log para confirmar que a localização foi atualizada
+                    // Toast.makeText(this, "Localização atualizada!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
 
     private void adicionarBotoesEstacoes(GridLayout gridLayout, String[] estacoes, int backgroundDrawable) {
         for (String estacao : estacoes) {

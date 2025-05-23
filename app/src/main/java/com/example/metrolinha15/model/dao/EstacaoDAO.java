@@ -1,4 +1,4 @@
-package com.example.metrolinha15.dao;
+package com.example.metrolinha15.model.dao;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.metrolinha15.dao.BancoHelper;
 import com.example.metrolinha15.model.Estacao;
 
 import java.util.ArrayList;

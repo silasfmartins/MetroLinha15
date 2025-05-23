@@ -5,13 +5,21 @@
     android:padding="24dp"
     android:background="@drawable/background">
 
-    <TextView
-        android:id="@+id/tvResumo"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Estatísticas"
-        android:textSize="16sp"
-        android:textColor="#FFF" />
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tvResumo"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Estatísticas"
+            android:textSize="16sp"
+            android:textColor="#0000"
+            android:scrollbars="vertical" />
+    </ScrollView>
 
     <Button
         android:id="@+id/btnZerar"

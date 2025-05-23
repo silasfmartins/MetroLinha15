@@ -1,4 +1,4 @@
-package com.example.metrolinha15.dao;
+package com.example.metrolinha15.model.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BancoHelper extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "metroLinha15";
-    private static final int VERSAO = 2; // ou 3, 4 etc., desde que seja maior que antes
+    private static final int VERSAO = 1;
 
     public BancoHelper(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
@@ -19,18 +19,24 @@ public class BancoHelper extends SQLiteOpenHelper {
                 "nome TEXT NOT NULL, " +
                 "telefone TEXT)");
 
-        String sql = "CREATE TABLE Estacao (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "origem TEXT," +
-                "destino TEXT," +
-                "latitude REAL," +
-                "longitude REAL)";
-        db.execSQL(sql);
+        db.execSQL("CREATE TABLE Estacao (" +
+                "idEstacao INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "nomeEstacao TEXT NOT NULL, " +
+                "origem INTEGER, " +
+                "destino INTEGER)");
 
         db.execSQL("CREATE TABLE Entrevistador (" +
                 "idEntrevistador INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "login TEXT NOT NULL, " +
                 "senha TEXT NOT NULL)");
+
+        db.execSQL("CREATE TABLE Estacao (" +
+                "idEstacao INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "origem TEXT NOT NULL, " +
+                "destino TEXT NOT NULL, " +
+                "latitude REAL, " +
+                "longitude REAL)");
+
     }
 
     @Override

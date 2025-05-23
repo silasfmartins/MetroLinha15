@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:paddingVertical="12dp"
+        android:paddingStart="12dp"
         android:hint="Login"
         android:background="@drawable/edittext_background"
         android:textColor="@color/azul_fundo"
@@ -21,16 +22,20 @@
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:paddingVertical="12dp"
+        android:paddingStart="12dp"
         android:hint="Senha"
         android:inputType="textPassword"
         android:background="@drawable/edittext_background"
         android:textColor="@color/azul_fundo"
         android:textColorHint="@color/azul_fundo" />
 
+
     <Button
         android:id="@+id/btnCadastrar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
-        android:text="Cadastrar Entrevistador" />
+        android:text="Cadastrar Entrevistador"
+        android:textColor="@android:color/white" />
+
 </LinearLayout>
